@@ -1,0 +1,8 @@
+/*Usamos el mapa anterior para crear botones de distintos colores */
+@each $nombre, $color in $colores-tema {
+  .btn-#{$nombre} {
+    /* Usamos #{} para interpolar la variable en el nombre de la clase*/
+    background-color: $color;
+    border: 1px solid darken($color, 10%);
+  }
+}

@@ -1,0 +1,11 @@
+// Declaración del mapa
+$colores-tema: (
+  "primario": #3498db,
+  "secundario": #2ecc71,
+  "peligro": #e74c3c,
+);
+
+// Uso del mapa
+.alerta {
+  background-color: map-get($colores-tema, "peligro");
+}

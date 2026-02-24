@@ -1,0 +1,6 @@
+// Genera clases desde .col-1 hasta .col-3 (inclusive)
+@for $i from 1 through 3 {
+  .col-#{$i} {
+    width: 100% / $i;
+  }
+}

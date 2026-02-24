@@ -1,0 +1,11 @@
+$tema-oscuro: true;
+
+body {
+  @if $tema-oscuro {
+    background-color: #333;
+    color: #fff;
+  } @else {
+    background-color: #fff;
+    color: #000;
+  }
+}

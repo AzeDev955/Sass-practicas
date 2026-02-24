@@ -1,0 +1,15 @@
+.boton {
+  background-color: blue;
+  padding: 10px 20px;
+
+  // El '&' se traduce como '.boton:hover'
+  &:hover {
+    background-color: darkblue;
+  }
+
+  // Anidamiento normal: '.boton span'
+  span {
+    color: white;
+    font-weight: bold;
+  }
+}

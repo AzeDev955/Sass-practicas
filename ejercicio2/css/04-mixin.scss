@@ -1,0 +1,17 @@
+// Declaramos el mixin con parámetros (y valores por defecto)
+@mixin flex-centrado($direccion: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direccion;
+}
+
+// Usamos el mixin con @include
+.caja-header {
+  @include flex-centrado(); // Usa el valor por defecto (row)
+  height: 100px;
+}
+
+.caja-sidebar {
+  @include flex-centrado(column); // Cambiamos el parámetro
+}

@@ -1,0 +1,10 @@
+// Función clásica de examen: convertir píxeles a rem
+@function px-a-rem($pixeles) {
+  $rem-base: 16;
+  @return ($pixeles / $rem-base) * 1rem;
+}
+
+// Uso
+p {
+  font-size: px-a-rem(24); // El CSS compilado mostrará: font-size: 1.5rem;
+}
