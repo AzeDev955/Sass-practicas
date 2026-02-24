@@ -1,0 +1,97 @@
+/*
+1. Variables e Interpolación
+Declarar variable: Siempre con $ al principio.
+
+Interpolación (#{}): Obligatoria cuando usas una variable en el nombre de una clase, selector o propiedad (no en el valor).
+*/
+$color-principal: #3498db;
+$nombre-clase: "boton";
+
+.#{$nombre-clase} {
+  // Interpolación
+  background-color: $color-principal; // Uso normal
+}
+
+/*
+2. Nesting (Anidamiento) y el selector &
+Regla de oro: No anides más de 3 niveles.
+
+El ampersand (&): Hace referencia exacta al elemento padre. Vital para pseudo-clases o modificadores de BEM.*/
+
+.enlace {
+  color: blue;
+
+  &:hover {
+    // Se compila como .enlace:hover
+    color: darkblue;
+  }
+}
+
+/*
+3. Mixins vs. Funciones
+La diferencia clave de examen: El Mixin devuelve bloques de código CSS (propiedades), la Función devuelve un único valor (cálculos).
+
+El Mixin (@mixin y @include):
+*/
+@mixin flex-center($direccion: row) {
+  // row es el valor por defecto
+  display: flex;
+  justify-content: center;
+  flex-direction: $direccion;
+}
+
+.caja {
+  @include flex-center(column);
+}
+
+@function mitad($numero) {
+  @return $numero / 2;
+}
+
+.caja {
+  width: mitad(100px); // Devuelve 50px
+}
+
+$redes: (
+  "twitter": blue,
+  "youtube": red,
+);
+
+/*
+4. Mapas y Bucle @each
+Mapa: Colección de "clave: valor".
+
+@each: Recorre el mapa. Necesitas dos variables iteradoras (una para la clave, otra para el valor).
+*/
+@each $nombre, $color in $redes {
+  .icono-#{$nombre} {
+    // Interpolamos la clave
+    background-color: $color; // Usamos el valor
+  }
+}
+
+/*
+5. Bucle @for
+through: Incluye el último número (ej: del 1 al 3, compila el 1, 2 y 3).
+
+to: Excluye el último número (ej: del 1 al 3, compila el 1 y 2).
+*/
+@for $i from 1 through 3 {
+  .col-#{$i} {
+    width: 100px * $i;
+  }
+}
+
+/*
+6. Condicionales (@if, @else)
+Te permiten cambiar los estilos basados en una variable booleana o condición.
+*/
+$es-dark-mode: true;
+
+body {
+  @if $es-dark-mode {
+    background: black;
+  } @else {
+    background: white;
+  }
+}
