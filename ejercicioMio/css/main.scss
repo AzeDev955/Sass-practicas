@@ -1,0 +1,19 @@
+$colores: (
+  "exito": #2ecc71,
+  "aviso": #f1c40f,
+  "error": #e74cec,
+);
+
+@mixin estilo-alerta($background-color) {
+  background-color: $background-color;
+  border: solid darken($color: $background-color, $amount: 15%) 2px;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+@each $nombre, $color in $colores {
+  .alerta-#{$nombre} {
+    @include estilo-alerta($color);
+  }
+}
