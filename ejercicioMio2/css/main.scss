@@ -1,0 +1,11 @@
+@function px-a-rem($pixeles) {
+  $rem: 16;
+  $remReturn: ($pixeles/$rem);
+  @return $remReturn * 1rem;
+}
+
+@for $i from 1 through 3 {
+  .m-top-#{$i} {
+    margin-top: px-a-rem($i * 10);
+  }
+}
